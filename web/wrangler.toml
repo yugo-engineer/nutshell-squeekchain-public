@@ -1,0 +1,12 @@
+# Cloudflare Workers, static assets only - the same platform nftlaunchpad2 ships on.
+#
+#   npm run deploy        # next build -> out/, then wrangler deploy
+#
+# There is no Worker script: the site is plain HTML/JS that reads the chain from the browser,
+# so nothing here can hold or leak a secret. Served at https://<name>.<account>.workers.dev.
+name = "nutshell"
+compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./out"
+not_found_handling = "404-page"

@@ -1,0 +1,12 @@
+node_modules/
+forge-out/
+forge-cache/
+cache/
+*.tsbuildinfo
+# The deployer key. NEVER commit. `npm run keygen` creates it.
+server/secrets.ts
+# Full epoch data sets (~8.5 MB each) - publish them to IPFS. The site's claim buckets in
+# web/public/epochs ARE committed. server/utils/ artifacts are committed on purpose: they are
+# the exact bytecode that deploys.
+epochs/
+.claude/settings.local.json

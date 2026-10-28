@@ -1,0 +1,33 @@
+{
+  "name": "nutshell",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "keygen": "node scripts/gen-key.mjs",
+    "contracts:compile": "node scripts/compile-contracts.mjs",
+    "contracts:deploy": "tsx scripts/deploy.ts",
+    "contracts:deploy:dry": "tsx scripts/deploy.ts --dry-run",
+    "config:push": "tsx scripts/push-config.ts",
+    "config:push:dry": "tsx scripts/push-config.ts --dry",
+    "status": "tsx scripts/status.ts",
+    "epoch": "tsx scripts/epoch.ts",
+    "fixture:merkle": "tsx scripts/gen-merkle-fixture.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/forge.mjs test -vv --no-match-contract ForkTest",
+    "test:gas": "node scripts/forge.mjs test --gas-report --no-match-contract ForkTest",
+    "test:fork": "node scripts/forge.mjs test -vv --match-contract ForkTest",
+    "forge": "node scripts/forge.mjs",
+    "seed": "tsx scripts/seed.ts",
+    "presale": "tsx scripts/presale.ts"
+  },
+  "dependencies": {
+    "viem": "^2.47.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "solc": "0.8.35",
+    "tsx": "^4.23.1",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,22 @@
+# Foundry is for TESTS ONLY.
+#
+# Deployment runs through scripts/compile-contracts.mjs (solc-js), so the bytecode that ships
+# is the bytecode that gets verified. These settings MUST mirror that pipeline and the SOLC_*
+# values in server/config.ts exactly, or the tests stop exercising what actually deploys.
+[profile.default]
+src = "contracts"
+test = "test"
+out = "forge-out"
+cache_path = "forge-cache"
+libs = ["lib"]
+solc_version = "0.8.35"
+optimizer = true
+optimizer_runs = 200
+# Cancun, not Paris: Uniswap v4 uses transient storage (EIP-1153), and Ethereum mainnet and
+# Sepolia have both run Cancun since 2024. The fork suite has to speak the PoolManager's dialect.
+evm_version = "cancun"
+via_ir = false
+fuzz = { runs = 512 }
+# test/MerkleFixture.t.sol reads the tree scripts/lib/merkle.ts built.
+fs_permissions = [{ access = "read", path = "./test/fixtures" }]
+verbosity = 2
